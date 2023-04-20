@@ -262,8 +262,10 @@ function removePrefix(url) {
             [8]: "/meridell-vs-darigan-album-avatar-list/",
             [9]: "/lost-desert-album-avatar-list/",
             [10]: "/battledome-album-avatar-list/",
+            [11]: "/coins-album-avatar-list/",
             [12]: "/battle-for-meridell-album-avatar-list/",
-            [13]: "/neoquest-ii-album-avatar-list/"
+            [13]: "/neoquest-ii-album-avatar-list/",
+            [15]: "/space-station-coins-album-avatar-list/"
         }
 
         const jellyneoLink = jellyneoLinks[page]
