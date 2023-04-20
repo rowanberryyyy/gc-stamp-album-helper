@@ -25,7 +25,7 @@ function removePrefix(url) {
     // The entry stamp_database in localStorage overwrites the default resource.
     // This is useful for testing. You can upload an experimental database to e.g. Github Gists,
     // write the link into localStorage and work with your development version
-    fetch(localStorage.getItem("stamp_database") ?? "https://raw.githubusercontent.com/windupbird144/gc-stamp-album-helper/main/stamps.json", { cache: "no-cache" })
+    fetch(localStorage.getItem("stamp_database") ?? "https://raw.githubusercontent.com/rowanberryyyy/gc-stamp-album-helper/main/stamps.json", { cache: "no-cache" })
         .then(res => res.json())
         .then(main)
 
@@ -265,7 +265,8 @@ function removePrefix(url) {
             [11]: "/coins-album-avatar-list/",
             [12]: "/battle-for-meridell-album-avatar-list/",
             [13]: "/neoquest-ii-album-avatar-list/",
-            [15]: "/space-station-coins-album-avatar-list/"
+            [15]: "/space-station-coins-album-avatar-list/",
+            [16]: "/evil-coconuts-album-avatar-list/"
         }
 
         const jellyneoLink = jellyneoLinks[page]
