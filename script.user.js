@@ -1,16 +1,18 @@
 // ==UserScript==
 // @name         Grundo's Café stamp album helper
 // @namespace    github.com/windupbird144
-// @version      0.4
+// @version      0.5
 // @description  Extend features of the stamp album on Grundo's Café
 // @author       supercow64, eleven
 // @match        https://www.grundos.cafe/stamps/album/?page_id=*
 // @icon         https://www.grundos.cafe/static/images/favicon.66a6c5f11278.ico
 // @grant        none
 // @license      MIT
+// @downloadURL https://update.greasyfork.org/scripts/465587/Grundo%27s%20Caf%C3%A9%20stamp%20album%20helper.user.js
+// @updateURL https://update.greasyfork.org/scripts/465587/Grundo%27s%20Caf%C3%A9%20stamp%20album%20helper.meta.js
 // ==/UserScript==
 
-const prefix = "https://neopialive.s3.us-west-1.amazonaws.com/items"
+const prefix = "https://grundoscafe.b-cdn.net/items"
 
 function removePrefix(url) {
     return url.replace(prefix, "")
@@ -87,7 +89,7 @@ function removePrefix(url) {
             w.addEventListener("DOMContentLoaded", () => {
                 const document = w.document
                 for (let [name, value] of Object.entries(formFields)) {
-                    const formField = document.querySelector(`[name='${name}']`)
+                    const formField = document.querySelector(name)
                     if (formField) {
                         formField.value = value
                     }
@@ -102,9 +104,9 @@ function removePrefix(url) {
         }
 
         const searchWizard = (query) => window.open(`/market/wizard?${encodeQuery("query",query)}`)
-        const searchTradingPost = (query) => openAndFill('/island/tradingpost/browse/', { category : 2, query })
+        const searchTradingPost = (query) => openAndFill('/island/tradingpost/browse/', { "#id_category" : 2, "#id_query" : query })
         const searchAuctionHouse = () => window.open("/auctions")
-        const searchSDB = (query) => window.open(`/safetydeposit/?page=1&${encodeQuery("query", query)}&category=0`)
+        const searchSDB = (query) => window.open(`/safetydeposit/?page=1&${encodeQuery("query", query)}`)
         const searchJellyneo = (query) => window.open(`https://items.jellyneo.net/search/?${encodeQuery("name", query)}`)
         const searchShop = () => window.open(`/viewshop/?shop_id=58`)
 
@@ -276,7 +278,7 @@ function removePrefix(url) {
 
         // Show diff form
         const compareUser = localStorage.getItem("compare-user") ?? ""
-        
+
         table.nextElementSibling.insertAdjacentHTML("beforeend", `<form action="#" id="compare-user">
            <label for="compare-user">Compare against another user</label><br>
            <input type="text" name="compare-user" value="${compareUser}" />
